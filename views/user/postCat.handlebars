@@ -1,0 +1,15 @@
+<h2 class="text-light">Postagens da categoria :{{categoria.nome}}</h2>
+{{#each posts}}
+<div class="card text-bg-dark mb-3 mt-4">
+    <div class="card-header">categoria:{{categoria.nome}}</div>
+    <div class="card-body">
+        <h2 class="card-title">{{titulo}}</h2>
+        <p class="card-text">{{descricao}}</p>
+        <button class="btn btn-light"><a class="text-decoration-none text-dark "
+                href="/user/post/{{slug}}">Ler</a></button>
+    </div>
+    <div class="card-footer">data de criação: {{data}}</div>
+</div>
+{{else}}
+<h1>Não tem postagens</h1>
+{{/each}}

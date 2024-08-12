@@ -1,0 +1,27 @@
+{{#if user}}
+  {{success}}
+   {{else}}
+<div style="background:#212529 !important;" class="p-5 mb-4 bg-body  rounded-3">
+      <div  class="container-fluid text-bg-dark py-5">
+        <h1 class="display-5 fw-bold">Blog App</h1>
+        <p class="col-md-8 fs-4">Aplicativo de Posts em Node JS ,Express e mongoDB.</p>
+        <button class="btn btn-light btn-lg" type="button" ><a class="link-dark link-underline link-underline-opacity-0" href="/user/registro">cadastre-se</a></button>
+              <button class="btn btn-light btn-lg" type="button" ><a class="link-dark link-underline link-underline-opacity-0" href="/user/login">login</a></button>
+      </div>
+    </div>
+    <hr>
+{{/if}}
+    <h2 class="text-light">Postagens Recentes</h2>
+    {{#each posts}}
+      <div class="card text-bg-dark mb-3 mt-4">
+         <div class="card-header">categoria:{{categoria.nome}}</div>
+        <div class="card-body">
+           <h2 class="card-title">{{titulo}}</h2>
+            <p class="card-text">{{descricao}}</p>
+            <button class="btn btn-light"><a class="text-decoration-none text-dark " href="/user/post/{{slug}}">Ler</a></button>
+        </div>
+          <div class="card-footer">data de criação: {{data}}</div>
+      </div>
+      {{else}}
+      <h1>Não tem postagens</h1>
+    {{/each}}

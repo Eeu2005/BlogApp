@@ -1,0 +1,21 @@
+{
+  "name": "blog_js",
+  "description": "Blog de posts feito com Node ,express e mongoDb",
+  "authors": "Eeu2005",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node",
+    "watch": "nodemon"
+  },
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.3",
+    "express-session": "^1.18.0",
+    "marked": "^13.0.3",
+    "mongoose": "^8.5.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  }
+}

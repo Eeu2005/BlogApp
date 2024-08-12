@@ -1,0 +1,23 @@
+{{#if edit}}
+  <h3 class="text-light">Editar categoria</h3>
+  <form action="/admin/categorias/edit/{{edit._id}}" method="post">
+{{else}}
+  <h3 class="text-light">Nova categoria</h3>
+  <form action="/admin/categorias/add" method="post">
+{{/if}}
+
+ <div class="card gap-3 p-3" data-bs-theme="dark">
+  <label  for="nome">Nome da categoria</label>
+  <input type="text" class="form-control" name="nome" value="{{edit.nome}}" id="nome" aria-describedby="helpId" placeholder="nome da categoria">
+ {{#if edit}}<input type="hidden" name="id" value="{{edit._id}}"{{/if}} 
+      <label for="nome">Slug da categoria </label>
+  <input type="text" class="form-control" name="slug" id="slug" value="{{edit.slug}}" aria-describedby="helpId" placeholder="slug da categoria">
+  <button type="submit" class="btn btn-dark  btn-outline-light">Enviar </button>
+<div id="liveAlertPlaceholder">{{#each erros}}
+  <div class="alert alert-danger" role="alert">
+           <div>{{mensagem}}</div>
+        </div>
+{{/each}}
+</div>
+</form>
+{{!-- <script src="/public/js/PostCategorias.js"></script> --}}

@@ -1,0 +1,65 @@
+{{#if post}}
+<h3 class="text-light">edição de postagem</h3>
+    <form action="/admin/post/edit/{{post._id}}" class="text-light" method="post">
+{{else}}
+<h3 class="text-light">Nova postagem</h3>
+<form action="/admin/post/add" class="text-light" method="post">
+{{/if}}
+
+        <div class="card gap-3 p-3" data-bs-theme="dark">
+        <label for="titulo">titulo post
+            <input type="text" required class="form-control" value="{{post.titulo}}" name="titulo" id="titulo" aria-describedby="helpId"
+                placeholder="titulo da postagem" />
+                </label>
+        <label for="slug">slug post
+            <input type="text" class="form-control"  required value="{{post.slug}}" name="slug" id="slug" aria-describedby="helpId"
+                placeholder="slug da postagem" /></label>
+
+        <label for="descricao">decricao post
+            <input type="text" class="form-control" name="descricao" required  value="{{post.descricao}}" id="descricao" aria-describedby="helpId"
+                placeholder="descricao da postagem" /></label>
+
+        <label for="conteudo">conteúdo do post
+            <textarea class="form-control" name="conteudo" id="conteudo" required rows="3">{{post.conteudo}}</textarea>
+            <p> para escrever utilize <a href="https://www.markdownguide.org/cheat-sheet/">Markdown click aqui para saber como utilizar</a> </p>
+               <button class="btn btn-primary" id="preview" type="button"> preview</button>
+            </label>
+                
+        <label for="cateogoria">categoria do post
+            <select class="form-control form-control-sm" name="categoria" required id="categoria"> 
+                {{#if post}}
+                    <option value="{{post.categoria._id}}" selected> {{post.categoria.nome}}</option>
+                {{/if}}
+                {{#each categorias}}
+               
+                <option value="{{_id}}">{{nome}}</option>
+                {{else}}
+                <option value="null">sem categorias</option>
+                {{/each}}
+            </select></label>
+
+            <div id="liveAlertPlaceholder">
+                {{#if erros}}
+  <div class="alert alert-danger" role="alert">
+           <div>{{erros.message}}</div>
+        </div>
+{{/if}} 
+ </div>
+        <button type="submit" class="btn btn-dark btn-outline-light">Enviar
+        </button>
+  <script>
+    let regex = /[^A-z\d][\\\^]?/g
+        let slug = document.querySelector("#slug")
+        
+        slug.addEventListener("input",(e)=>{
+               if(regex.test(slug.value)){
+                  console.log(regex.test(slug.value))
+                        slug.validity.patternMismatch =true
+            }else{
+                slug.checkValidity()
+            }
+            
+        })           
+  </script>
+  <script  type="module" src="/public/js/postForm.js"></script>
+</form>

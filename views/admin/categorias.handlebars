@@ -1,0 +1,23 @@
+<h2 style="color: var(	--bs-light);">Lista de Categorias</h2>
+
+{{#each categorias}}
+    <div class="card bg-text-dark mt-4" >
+  <div class="  card-body col-7">
+    <h4 class="card-title">{{nome}}</h4>
+    <p class="card-text">{{slug}}</p>
+    <small>data criação:{{data}}</small>
+    <br>
+    <a class="btn btn-warning mt-2"  href="/admin/categorias/edit/{{id}}" role="button">Editar</a>
+      <a class="btn btn-danger mt-2" href="/admin/categorias/delete/{{id}}" role="button">deletar</a>
+  </div>
+  </div>
+
+    
+  {{else}}
+      <div class="mt-4" >
+  <h2 class="text-light">  Sem Categorias :(</h2>
+</div>
+{{/each}}
+
+<hr>
+<a href="/admin/categorias/add"><button type="button" class="btn btn-dark" data-bs-theme="dark" data-toggle="button" aria-pressed="false" autocomplete="off">Nova categoria</button></a>

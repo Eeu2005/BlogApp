@@ -1,0 +1,19 @@
+    <h2 style="color: var(	--bs-light);">Lista de Categorias</h2>
+
+{{#each categorias}}
+    <div class="card text-bg-dark mt-4" >
+  <div class="  card-body col-7">
+    <h4 class="card-title">{{nome}}</h4>
+    <p class="card-text">{{slug}}</p>
+    <small>data criação:{{data}}</small>
+    <br>
+    <a class="btn btn-success mt-2 text-light"  href="/user/categorias/{{slug}}" role="button">Posts da categoria</a>
+  </div>
+  </div>
+
+    
+  {{else}}
+      <div class="mt-4" >
+  <h2 class="text-light">  Sem Categorias :(</h2>
+</div>
+{{/each}}

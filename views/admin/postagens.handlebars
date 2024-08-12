@@ -1,0 +1,30 @@
+<h2 style="color: var(	--bs-light);">Lista de postagens</h2>
+
+ {{#each posts }}
+    <div class="card text-bg-dark mb-3 mt-4" >
+      <div class="card-header">
+         <h4 class="card-title">{{titulo}}</h4>
+      </div>
+  <div class="  card-body col-7">
+    <p class="card-subtitle">{{descricao}}</p>
+    <p class=" card-text">{{conteudo}}</p>
+   
+      <p class="card-text">categoria:{{categoria.nome}}  </p>
+
+    <small>data criação:{{data}}</small>
+
+    <br>
+    
+      <a class="btn btn-warning mt-2"  href="/admin/post/edit/{{_id}}" role="button">Editar</a>
+         <form action=""><button class="btn btn-danger mt-2 text-dark" type="submit" formmethod="post"formaction="/admin/post/delete/{{_id}}">deletar</button> </form>
+
+  </div>
+  </div>
+  {{else}}
+         <div class="mt-4" >
+  <h2 style="color: var(	--bs-light);">  Sem Postagens :(</h2>
+</div>
+{{/each}} 
+
+<hr>
+<a href="/admin/post/add"><button type="button" class="btn btn-dark" data-bs-theme="dark" data-toggle="button" aria-pressed="false" autocomplete="off">Nova postagem</button></a>

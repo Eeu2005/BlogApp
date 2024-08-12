@@ -1,0 +1,32 @@
+<form action="add" method="post">
+    <h2 class="text-light">Registre-se</h2>
+    <div class="card p-3 text-bg-dark">
+        <div class="card-body col">
+            <div for="" class="form-label">
+                <p>digite o nome</p>
+                <input type="text" placeholder="nome" name="nome" class="form-control" required />
+            </div>
+            <div for="">
+                <p>email</p>
+                <input type="email" required placeholder="email" name="email" class="form-control" />
+            </div>
+            <div for="">
+                <p>digite a senha</p>
+                <input type="password" required placeholder="senha" name="senha" class="form-control" />
+            </div>
+            <div for="">
+                <p>repita a senha</p>
+                <input type="password" required placeholder="repita a senha" name="senha2" class="form-control" />
+            </div>
+        </div>
+        <div class="card-footer">
+            <div id="liveAlertPlaceholder">{{#each erros}}
+                <div class="alert alert-danger" role="alert">
+                    <div>{{mensagem}}</div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <button type="submit" class="mt-4 btn btn-success">enviar</button>
+    </div>
+</form>
