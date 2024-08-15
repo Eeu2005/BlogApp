@@ -1,6 +1,6 @@
 ## blog App
 
-### Blog de noticias com uma area administrativa para cadastrar, postagens e categorias com área de registro e login de usuários
+### Blog de noticias com uma area administrativa para cadastrar,postagens e categorias; Com área de registro e login de usuários
 
 ## feito com as seguintes tecnologias
 
